@@ -1,399 +1,403 @@
-// ============================================================
-// DATI MAXFRA — Piano Personalizzato
-// ============================================================
-
 export const PROFILES = {
   max: {
-    id: 'max',
-    name: 'Massimo',
-    emoji: '👨',
-    color: '#4f8ef7',
-    colorLight: '#1a3a6e',
-    label: 'Max',
-    age: null,
-    alerts: [
-      '⚠️ Carotide occlusa 100% — priorità cardiovascolare assoluta',
-      '💊 Statine + Cardioaspirina — evitare pompelmo, seguire orari',
-      '🦋 Tiroide mancante — levotiroxina 30-60 min prima di colazione, lontano da caffè/calcio/ferro',
-      '🫀 Placche aterosclerotiche — omega-3 EPA/DHA fondamentali ogni giorno',
-    ]
+    nome: "Massimo",
+    eta: "~70 anni",
+    colore: "#4A90D9",
+    emoji: "👨",
+    patologie: ["Ipercolesterolemia (statine + cardioaspirina)", "Placche aterosclerotiche (carotide 100% + 30%)", "Tiroide mancante (levotiroxina)", "Tremore essenziale genetico", "Pancia adiposa viscerale"],
+    note: "Levotiroxina: assumere 60 min prima di caffè, calcio, ferro. Statine: sera. Cardioaspirina: mattina con cibo."
   },
   fra: {
-    id: 'fra',
-    name: 'Franca',
-    emoji: '👩',
-    color: '#c084fc',
-    colorLight: '#3b1a5e',
-    label: 'Fra',
-    age: null,
-    alerts: [
-      '🧬 Predisposizione glicemica alta — ordine assunzione cibo obbligatorio',
-      '🦴 Osteopenia — D3+K2 ogni giorno, attività fisica con pesi',
-      '💧 Calcoli renali — 2L acqua oligominerale al giorno, evitare ossalati',
-      '🎗️ Senza colecisti — grassi buoni ma distribuiti (non tutti in un pasto)',
-      '🧫 Microbiota in disbiosi — probiotici, fibre, amido resistente',
-      '⚠️ Sensibilità lattosio e sale — ridurre entrambi',
+    nome: "Franca",
+    eta: "~65 anni",
+    colore: "#9B59B6",
+    emoji: "👩",
+    patologie: ["Osteopenia", "Ipercolesterolemia (rosuvastatina)", "Placca aterosclerotica", "Colicistectomia (senza cistifellea)", "Calcoli renali (ossalato di calcio)", "Giramenti di testa / cervicale", "MTHFR doppia mutazione"],
+    note: "Senza cistifellea: grassi distribuiti nei pasti, no grassi abbondanti. Mutazione MTHFR: serve folato attivo (metilfolato). Calcoli renali: idratazione fondamentale, limitare ossalati."
+  }
+};
+
+export const MENU_SETTIMANALE = [
+  {
+    giorno: "Lunedì",
+    colazione: {
+      base: "Yogurt greco magro con frutti di bosco e semi di lino",
+      note_max: "Aggiungi noci (pugnetto). Aspetta 60 min dalla levotiroxina.",
+      note_fra: "Piccola porzione di grassi buoni (mezzo cucchiaio olio EVO sui frutti di bosco)"
+    },
+    pranzo: {
+      base: "Salmone al vapore con quinoa e verdure grigliate (zucchine, peperoni)",
+      note_max: "Porzione abbondante di salmone per omega-3",
+      note_fra: "Salmone ottimo per colesterolo. Aggiungi succo di limone per assorbimento calcio"
+    },
+    cena: {
+      base: "Minestrone di legumi (lenticchie) con farro e olio EVO a crudo",
+      note_max: "Aggiungi erbe aromatiche anti-infiammatorie (rosmarino, curcuma)",
+      note_fra: "Porzione legumi moderata (ossalati). Bevi acqua durante e dopo il pasto"
+    }
+  },
+  {
+    giorno: "Martedì",
+    colazione: {
+      base: "Pane integrale tostato con avocado e uovo in camicia",
+      note_max: "Perfetto. Cardioaspirina con questo pasto.",
+      note_fra: "Avocado ottimo (grassi buoni, digeribili senza cistifellea in quantità moderate)"
+    },
+    pranzo: {
+      base: "Petto di pollo alla griglia con insalata mista e olio EVO, limone",
+      note_max: "Aggiungi semi di girasole o zucca per vitamina E",
+      note_fra: "Condisci con poco olio ma buono. Evita condimenti grassi pesanti"
+    },
+    cena: {
+      base: "Zuppa di fagioli bianchi e cavolo nero con crostini integrali",
+      note_max: "Ottimo per il cuore. Aggiungi aglio crudo se gradito",
+      note_fra: "Bevi 1-2 bicchieri d'acqua extra la sera per i reni"
+    }
+  },
+  {
+    giorno: "Mercoledì",
+    colazione: {
+      base: "Porridge di avena con banana e cannella",
+      note_max: "Avena abbassa il colesterolo. Aggiungi semi di chia",
+      note_fra: "Banana ok. Aggiungi un cucchiaio di olio di cocco (media catena, non richiede cistifellea)"
+    },
+    pranzo: {
+      base: "Merluzzo al forno con patate al rosmarino e spinaci saltati",
+      note_max: "Ottimo pesce magro. Aggiungi olio EVO abbondante",
+      note_fra: "Spinaci con moderazione (ossalati). Merluzzo ottimo per proteine magre"
+    },
+    cena: {
+      base: "Frittata di verdure (zucchine, cipolla, prezzemolo) con insalata",
+      note_max: "2-3 uova. Aggiungi formaggio magro se vuoi",
+      note_fra: "2 uova max. Cottura leggera, poco olio"
+    }
+  },
+  {
+    giorno: "Giovedì",
+    colazione: {
+      base: "Smoothie verde: spinaci, mela, zenzero, latte di mandorla, semi di lino",
+      note_max: "Aggiungi proteine (cucchiaio di proteine vegetali o yogurt greco)",
+      note_fra: "Spinaci moderati. Ottimo per colesterolo e intestino"
+    },
+    pranzo: {
+      base: "Pasta integrale al pomodoro fresco con basilico e tonno",
+      note_max: "Porzione normale. Il tonno dà omega-3 extra",
+      note_fra: "Porzione pasta moderata. Tonno ottimo. Aggiungi limone sul tonno"
+    },
+    cena: {
+      base: "Ceci al curry con riso basmati e yogurt greco",
+      note_max: "Curcuma nel curry: potente anti-infiammatorio per le placche",
+      note_fra: "Ceci in porzione moderata. Il curry aiuta la digestione"
+    }
+  },
+  {
+    giorno: "Venerdì",
+    colazione: {
+      base: "Toast integrale con salmone affumicato e avocado",
+      note_max: "Eccellente per il cuore. Omega-3 al mattino",
+      note_fra: "Salmone affumicato ok ma attenzione al sodio. Avocado in quantità moderata"
+    },
+    pranzo: {
+      base: "Insalata di farro con pomodorini, olive, feta e prezzemolo",
+      note_max: "Aggiungi noci o mandorle per i grassi buoni",
+      note_fra: "Feta con moderazione (sale). Olive: grassi sani e facilmente digeribili"
+    },
+    cena: {
+      base: "Branzino al forno con limone, finocchi e carote",
+      note_max: "Pesce bianco ottimo. Aggiungi olio EVO abbondante a crudo",
+      note_fra: "Pesce bianco ideale. Finocchi aiutano la digestione. Molto limone"
+    }
+  },
+  {
+    giorno: "Sabato",
+    colazione: {
+      base: "Pancakes di avena con mirtilli e sciroppo d'acero (1 cucchiaio)",
+      note_max: "Giorno libero con controllo. Aggiungi un po' di burro di mandorle",
+      note_fra: "Preferisci latte di riso o avena nei pancakes. Mirtilli ottimi antiossidanti"
+    },
+    pranzo: {
+      base: "Bistecca di manzo magra con verdure al forno e patata dolce",
+      note_max: "Una volta a settimana va bene. Cottura alla griglia",
+      note_fra: "Porzione piccola di carne. Cottura magra, elimina il grasso visibile"
+    },
+    cena: {
+      base: "Pizza integrale fatta in casa con pomodoro, verdure e mozzarella light",
+      note_max: "Pasto libero controllato. Goditela!",
+      note_fra: "Mozzarella light. Condimento leggero di olio"
+    }
+  },
+  {
+    giorno: "Domenica",
+    colazione: {
+      base: "Uova strapazzate con pane integrale, pomodorini e erbe",
+      note_max: "Domenica sostanziosa. 3 uova ok.",
+      note_fra: "2 uova. Cottura senza burro (olio EVO leggero)"
+    },
+    pranzo: {
+      base: "Risotto al limone con gamberi e asparagi",
+      note_max: "Pasto famiglia. Porzione normale di riso",
+      note_fra: "Gamberi: proteine magre ottime. Asparagi: diuretici naturali (bene per reni)"
+    },
+    cena: {
+      base: "Zuppa di verdure con legumi misti e pane di segale",
+      note_max: "Cena leggera dopo pranzo abbondante",
+      note_fra: "Legumi misti in porzione moderata. Bevi molta acqua la sera"
+    }
+  }
+];
+
+export const CIBI = {
+  condivisi_si: [
+    { nome: "Salmone e pesci grassi", motivo: "Omega-3, anti-infiammatorio, colesterolo" },
+    { nome: "Olio EVO a crudo", motivo: "Grassi monoinsaturi, cuore e colesterolo" },
+    { nome: "Avena e cereali integrali", motivo: "Beta-glucani, abbassano LDL" },
+    { nome: "Legumi (lenticchie, ceci, fagioli)", motivo: "Proteine vegetali, fibra, cuore" },
+    { nome: "Frutti di bosco", motivo: "Antiossidanti, anti-infiammatori" },
+    { nome: "Noci e mandorle", motivo: "Omega-3, vitamina E, cuore" },
+    { nome: "Verdure a foglia verde", motivo: "Micronutrienti, fibra, antiossidanti" },
+    { nome: "Aglio e cipolla", motivo: "Allicina: anti-aterosclerotica, antibatterica" },
+    { nome: "Curcuma + pepe nero", motivo: "Curcumina: anti-infiammatorio potente" },
+    { nome: "Mirtilli, melograno", motivo: "Antociani: protezione cardiovascolare" },
+    { nome: "Pesce bianco (merluzzo, branzino)", motivo: "Proteine magre, facilmente digeribile" },
+    { nome: "Semi di lino e chia", motivo: "Omega-3 vegetali, fibra solubile" }
+  ],
+  fra_attenzione: [
+    { nome: "Spinaci e bietole (MODERARE)", motivo: "Ossalati → rischio calcoli renali" },
+    { nome: "Cioccolato fondente (POCO)", motivo: "Ossalati. Ok 1-2 quadratini" },
+    { nome: "Noci (MODERATE)", motivo: "Ossalati. Max una manciata al giorno" },
+    { nome: "Grassi abbondanti in un pasto", motivo: "Senza cistifellea: distribuire i grassi" },
+    { nome: "Cibi fritti o molto grassi", motivo: "Difficili da digerire senza cistifellea" },
+    { nome: "Pasti abbondanti e veloci", motivo: "Mangiare lentamente, porzioni moderate" },
+    { nome: "Tè nero, caffè in eccesso", motivo: "Ossalati e disidratazione (calcoli)" }
+  ],
+  max_attenzione: [
+    { nome: "Sale (RIDURRE)", motivo: "Ipertensione, rischio cardiovascolare" },
+    { nome: "Alcol (LIMITARE)", motivo: "Interferisce con statine e tiroide" },
+    { nome: "Pompelmo", motivo: "Interferisce con statine (atorvastatina)" },
+    { nome: "Grassi saturi e trans", motivo: "Peggiorano aterosclerosi e colesterolo" },
+    { nome: "Zuccheri raffinati", motivo: "Trigliceridi, adiposità viscerale" },
+    { nome: "Caffeina eccessiva", motivo: "Interferisce con levotiroxina" }
+  ],
+  entrambi_stop: [
+    { nome: "Cibi ultra-processati", motivo: "Infiammazione sistemica, nessun valore nutritivo" },
+    { nome: "Bevande zuccherate", motivo: "Trigliceridi, infiammazione, sovrappeso" },
+    { nome: "Grassi trans (margarina, fritto industriale)", motivo: "Aterosclerosi diretta" },
+    { nome: "Salumi e carni processate", motivo: "Sale, conservanti, rischio cardiovascolare" }
+  ]
+};
+
+// Integratori MASSIMO
+export const INTEGRATORI_MAX_DEFAULT = [
+  {
+    id: "max_1",
+    nome: "CoQ10 (Ubiquinolo)",
+    brand: "Jarrow Formulas Ubiquinol 100mg",
+    dose: "100-200mg/giorno",
+    quando: "Mattina con pasto grasso",
+    perche: "Le statine esauriscono il CoQ10. Fondamentale per energia cellulare, cuore e muscoli.",
+    priorita: "alta"
+  },
+  {
+    id: "max_2",
+    nome: "Omega-3 (EPA+DHA)",
+    brand: "Nordic Naturals Ultimate Omega o Solgar",
+    dose: "2g/giorno (EPA+DHA combinati)",
+    quando: "Con i pasti (pranzo o cena)",
+    perche: "Trigliceridi, anti-infiammatorio per aterosclerosi, protezione cardiaca.",
+    priorita: "alta"
+  },
+  {
+    id: "max_3",
+    nome: "Magnesio Bisglicinato",
+    brand: "Natural Point o Vita al Top",
+    dose: "300-400mg/giorno",
+    quando: "Sera prima di dormire",
+    perche: "Rilassa i muscoli, qualità del sonno, regola la pressione, riduce tremore.",
+    priorita: "alta"
+  },
+  {
+    id: "max_4",
+    nome: "Vitamina D3",
+    brand: "Solgar D3 2000UI o Biosalus",
+    dose: "2000-4000UI/giorno",
+    quando: "Mattina con pasto grasso",
+    perche: "Ossa (osteopenia latente), cuore, sistema immunitario, umore.",
+    priorita: "alta"
+  },
+  {
+    id: "max_5",
+    nome: "Vitamina K2 (MK-7)",
+    brand: "Now Foods K2 o WeightWorld",
+    dose: "100-200mcg/giorno",
+    quando: "Mattina con pasto grasso (con D3)",
+    perche: "Dirige il calcio verso le ossa e non nelle arterie. Fondamentale con D3.",
+    priorita: "media"
+  },
+  {
+    id: "max_6",
+    nome: "Berberina",
+    brand: "Jarrow Berberine 500mg o Solgar",
+    dose: "500mg x2/giorno",
+    quando: "Prima dei pasti principali",
+    perche: "Abbassa colesterolo LDL e trigliceridi, anti-aterosclerotica.",
+    priorita: "media"
+  },
+  {
+    id: "max_7",
+    nome: "Vegastabil (prescritto neurologo)",
+    brand: "Vegastabil (come prescritto)",
+    dose: "Come da prescrizione neurologo",
+    quando: "Come indicato dal medico",
+    perche: "Prescritto per il tremore essenziale genetico. Segui le indicazioni mediche.",
+    priorita: "alta"
+  }
+];
+
+// Integratori FRANCA - lista aggiornata
+export const INTEGRATORI_FRA_DEFAULT = [
+  {
+    id: "fra_1",
+    nome: "B-Dyn (complesso B attivo)",
+    brand: "B-Dyn (Metilfolato + B12 metilcobalamina + B6 piridossale-5-fosfato)",
+    dose: "1 compressa/giorno",
+    quando: "Sera (con o senza cibo)",
+    perche: "Doppia mutazione MTHFR: il folato normale non viene convertito. Questo è già in forma attiva. Sostituisce l'acido folico precedente. Abbassa omocisteina (rischio cardiovascolare).",
+    priorita: "alta"
+  },
+  {
+    id: "fra_2",
+    nome: "Magnesio Bisglicinato",
+    brand: "Vita al Top Magnesio Bisglicinato o Natural Point",
+    dose: "300mg/giorno",
+    quando: "Sera (con B-Dyn)",
+    perche: "Forma altamente assorbibile. Rilassa i muscoli (cervicale), aiuta il sonno, riduce crampi, supporta la funzione cardiaca. Non compete con il calcio.",
+    priorita: "alta"
+  },
+  {
+    id: "fra_3",
+    nome: "Vitamina D3",
+    brand: "Solgar Vitamina D3 2000UI o Biosalus D3",
+    dose: "2000UI/giorno",
+    quando: "Mattina con pasto contenente grassi (es. avocado, olio EVO, uova)",
+    perche: "Osteopenia: fondamentale per l'assorbimento del calcio nelle ossa. Lavora in sinergia con K2. Senza cistifellea: assumere con grassi per assorbimento ottimale.",
+    priorita: "alta"
+  },
+  {
+    id: "fra_4",
+    nome: "Vitamina K2 (MK-4)",
+    brand: "WeightWorld Vitamina K2 MK-4 100mcg",
+    dose: "100mcg/giorno",
+    quando: "Mattina con pasto grasso (insieme a D3)",
+    perche: "Dirige il calcio verso le ossa (non nelle arterie o nei reni). Fondamentale con D3 per osteopenia. Riduce rischio calcoli renali da calcio male indirizzato.",
+    priorita: "alta"
+  },
+  {
+    id: "fra_5",
+    nome: "Calcio Citrato",
+    brand: "Solgar Calcium Citrate 250mg (2 compresse = 500mg)",
+    dose: "500mg/giorno",
+    quando: "Pranzo (mai insieme a ferro o levotiroxina)",
+    perche: "Osteopenia: supporto osseo. Il citrato si assorbe meglio senza cistifellea rispetto al carbonato. Non con D3 e K2 della mattina per evitare eccesso contemporaneo.",
+    priorita: "alta"
+  },
+  {
+    id: "fra_6",
+    nome: "CoQ10 (Ubichinone)",
+    brand: "WeightWorld CoQ10 100mg (non ubiquinolo - forma standard)",
+    dose: "100mg/giorno",
+    quando: "Mattina con pasto grasso (con D3 e K2)",
+    perche: "Le statine (rosuvastatina) esauriscono il CoQ10. Fondamentale per energia cellulare, protezione cardiaca, riduzione affaticamento muscolare da statine.",
+    priorita: "alta"
+  }
+];
+
+export const ORARIO_INTEGRATORI_FRA = {
+  mattina: ["Vitamina D3 (con pasto grasso)", "Vitamina K2 MK-4 (con pasto grasso)", "CoQ10 (con pasto grasso)"],
+  pranzo: ["Calcio Citrato (lontano da ferro/farmaci)"],
+  sera: ["B-Dyn (con o senza cibo)", "Magnesio Bisglicinato (con B-Dyn)"],
+  dopo_cena: ["Rosuvastatina 5mg (30 min dopo cena)"],
+  mattina_farmaci: ["Bisoprololo 1,25mg (mattina con colazione)"]
+};
+
+export const STILE_VITA = {
+  mattina: [
+    { ora: "7:00", azione: "Sveglia. Bicchiere d'acqua tiepida con limone. MAX: levotiroxina a stomaco vuoto." },
+    { ora: "7:30", azione: "Movimento leggero: 10 min stretching o camminata. Esposizione alla luce solare." },
+    { ora: "8:00", azione: "Colazione ricca e bilanciata. MAX: cardioaspirina con cibo. FRA: D3+K2+CoQ10 con pasto grasso." },
+    { ora: "9:30", azione: "Caffè (MAX: 60 min dopo levotiroxina). Attività mentale, lettura, progetti." }
+  ],
+  giorno: [
+    { ora: "12:30", azione: "Pranzo. FRA: Calcio Citrato. Pasto bilanciato con proteine e verdure." },
+    { ora: "14:00", azione: "Riposo breve (20 min max) o passeggiata digestiva. Idratazione continua." },
+    { ora: "15:00", azione: "Attività fisica o hobby. Socializzazione (ottima per neuroprotezione)." },
+    { ora: "17:00", azione: "Spuntino leggero: frutta, noci, yogurt. Idratazione." }
+  ],
+  sera: [
+    { ora: "19:30", azione: "Cena leggera. FRA: B-Dyn + Magnesio sera. MAX: serenità, no stress." },
+    { ora: "20:30", azione: "Rosuvastatina (FRA). MAX: statina (se prescritta sera). Passeggiata breve." },
+    { ora: "21:30", azione: "Routine relax: lettura, musica. No schermi forti. Ridurre stimoli." },
+    { ora: "22:30", azione: "Sonno. Stanza fresca e buia. MAX: Magnesio sera aiuta il sonno." }
+  ],
+  allenamento: {
+    max: [
+      "Camminata veloce 30-45 min, 5 giorni/settimana (cardio leggero per cuore)",
+      "Esercizi di equilibrio e coordinazione (prevenzione cadute, utile per tremore)",
+      "Stretching quotidiano (10-15 min mattina)",
+      "NO sforzi intensi improvvisi (aterosclerosi carotidea)",
+      "Nuoto o cyclette: ottimi per Max (nessun impatto)"
+    ],
+    fra: [
+      "Camminata quotidiana 30 min (fondamentale per osteopenia)",
+      "Esercizi con i pesi leggeri 2x/settimana (stimola densità ossea)",
+      "Yoga o Pilates per cervicale e equilibrio",
+      "Cyclette o nuoto (non impatto, ma carico osseo moderato)",
+      "Esposizione solare 15-20 min/giorno (Vitamina D naturale)"
     ]
   }
 };
 
-// ============================================================
-// MENÙ SETTIMANALE CONDIVISO
-// ============================================================
-export const MENU_SETTIMANALE = [
-  {
-    giorno: 'Lunedì',
-    short: 'LUN',
-    colazione: {
-      base: 'Yogurt greco intero con mirtilli, semi di chia e noci',
-      note_fra: 'Yogurt senza lattosio o kefir; porzione piccola di noci',
-      note_max: 'Aggiungere 1 cucchiaio di semi di lino macinati (omega-3). Caffè DOPO 60 min da levotiroxina',
-      semaforo: '🟢',
-    },
-    pranzo: {
-      base: 'Salmone al vapore con broccoli saltati in olio EVO, patate dolci raffreddate',
-      note_fra: 'Porzione grassi moderata. Iniziare con broccoli, poi pesce, poi patate',
-      note_max: 'Porzione abbondante salmone (omega-3). Aggiungere aglio crudo sui broccoli',
-      semaforo: '🟢',
-    },
-    cena: {
-      base: 'Uova strapazzate con asparagi e curcuma + pepe nero',
-      note_fra: 'Massimo 2 uova, aggiungere spinaci. Cena entro le 20:00',
-      note_max: 'Ok 3 uova intere. Aggiungere pomodori cotti (licopene per prostata/cuore)',
-      semaforo: '🟢',
-    },
-    spuntino: 'Mela verde + mandorle (10 pz)',
-    tag: ['omega3', 'antinfiammatorio', 'glucosio'],
-  },
-  {
-    giorno: 'Martedì',
-    short: 'MAR',
-    colazione: {
-      base: 'Avena con banana non matura, mirtilli, semi di lino e cannella',
-      note_fra: 'Avena è amido resistente — perfetta per microbiota. Cannella aiuta glicemia',
-      note_max: 'Aggiungere proteine: 1 uovo sodo o 1 cucchiaio di proteine del riso',
-      semaforo: '🟢',
-    },
-    pranzo: {
-      base: 'Insalata di lenticchie con avocado, ravanelli, cipolla rossa, olio EVO e limone',
-      note_fra: 'Iniziare con ravanelli/cipolla, poi lenticchie + avocado. Ottimo per microbiota',
-      note_max: 'Aggiungere 50g di tacchino al forno (non in scatola). Porzione avocado generosa',
-      semaforo: '🟢',
-    },
-    cena: {
-      base: 'Merluzzo al vapore con finocchio e carote al forno con olio EVO e rosmarino',
-      note_fra: 'Ottimo per calcoli renali (pesce bianco, basso ossalato)',
-      note_max: 'Aggiungere 1 cucchiaino curcuma sulle carote. Porzione abbondante pesce',
-      semaforo: '🟢',
-    },
-    spuntino: 'Avocado con limone e semi di chia',
-    tag: ['legumi', 'fibra', 'microbiota'],
-  },
-  {
-    giorno: 'Mercoledì',
-    short: 'MER',
-    colazione: {
-      base: 'Uova strapazzate con spinaci, aglio e olio EVO',
-      note_fra: 'Spinaci ricchi di vitamina K (per osteopenia) e folato (B9 carente)',
-      note_max: 'Caffè solo dopo 60 min da levotiroxina. 2-3 uova ok',
-      semaforo: '🟢',
-    },
-    pranzo: {
-      base: 'Pollo arrosto con cavolfiore al forno, riso basmati raffreddato e curcuma',
-      base_detail: 'Il riso va cucinato il giorno prima e raffreddato (amido resistente!)',
-      note_fra: 'Iniziare con cavolfiore, poi pollo, poi riso. Porzione riso 60g crudo max',
-      note_max: 'Crucifere (cavolfiore) aiutano a ridurre colesterolo LDL. Porzione riso normale',
-      semaforo: '🟡',
-    },
-    cena: {
-      base: 'Zuppa di fagioli neri con zenzero, rosmarino e olio EVO a crudo',
-      note_fra: 'Fagioli neri = amido resistente top. Evitare sale, usare erbe aromatiche',
-      note_max: 'I fagioli abbassano colesterolo (fibra solubile). Aggiungere 1 cucchiaio olio EVO a crudo',
-      semaforo: '🟢',
-    },
-    spuntino: 'Tè verde + 10 anacardi',
-    tag: ['anticancro', 'amido-resistente', 'colesterolo'],
-  },
-  {
-    giorno: 'Giovedì',
-    short: 'GIO',
-    colazione: {
-      base: 'Yogurt greco + semi di zucca + mirtilli + 1 cucchiaino miele grezzo',
-      note_fra: 'Yogurt senza lattosio. Semi di zucca ricchi di zinco (carenza genetica Franca)',
-      note_max: 'Aggiungere semi di lino o chia per omega-3. Caffè lontano da farmaci',
-      semaforo: '🟢',
-    },
-    pranzo: {
-      base: 'Sardine in olio EVO (non in scatola!) con insalata mista, limone e topinambur',
-      base_detail: 'Sardine fresche o surgelate — MAI in scatola (istamina per Fra)',
-      note_fra: '⚠️ Solo sardine FRESCHE/surgelate. Topinambur ottimo per glicemia. Attenzione sale',
-      note_max: 'Sardine = omega-3 top per carotide. Porzione generosa. Aglio sull\'insalata',
-      semaforo: '🟡',
-    },
-    cena: {
-      base: 'Tacchino saltato con broccoli, zucchine e olio EVO, prezzemolo fresco',
-      note_fra: 'Prezzemolo ricco vitamina K (osteopenia). Broccoli per microbiota',
-      note_max: 'Cena leggera ma proteica. Aggiungere semi di lino sul piatto a fine cottura',
-      semaforo: '🟢',
-    },
-    spuntino: 'Sedano + hummus di ceci (fatto in casa, poco sale)',
-    tag: ['omega3', 'zinco', 'vitamina-k'],
-  },
-  {
-    giorno: 'Venerdì',
-    short: 'VEN',
-    colazione: {
-      base: 'Avena con mela grattuggiata, cannella, noci e semi di chia',
-      note_fra: 'Cannella = abbassa glicemia. Mela (senza buccia se gonfiore)',
-      note_max: 'Aggiungere proteina: yogurt greco 2 cucchiai sopra l\'avena',
-      semaforo: '🟢',
-    },
-    pranzo: {
-      base: 'Sgombro al forno con patate dolci e asparagi all\'olio EVO',
-      note_fra: 'Asparagi = vitamina K + acido folico (entrambi carenti geneticamente). Patate dolci raffreddate prima',
-      note_max: 'Sgombro = omega-3 eccellente per carotide. Porzione abbondante',
-      semaforo: '🟢',
-    },
-    cena: {
-      base: 'Frittata di uova con cipolla, zucchine e erbe aromatiche (no formaggio)',
-      note_fra: 'Max 2 uova. Aggiungere spinaci o rucola a lato',
-      note_max: '3-4 uova. Il colesterolo delle uova non alza il colesterolo sierico in chi mangia sano',
-      semaforo: '🟢',
-    },
-    spuntino: 'Kiwi + 1 manciata di noci',
-    tag: ['omega3', 'vitamina-k', 'folato'],
-  },
-  {
-    giorno: 'Sabato',
-    short: 'SAB',
-    colazione: {
-      base: 'Pasto libero CONSAPEVOLE — es. uova con pane integrale ai semi',
-      note_fra: 'Evitare cornetti/dolci. Ok uova + pane integrale. No salumi/formaggio fresco',
-      note_max: 'Evitare brioche/dolci. Ok uova o yogurt greco. Caffè lontano da farmaci',
-      semaforo: '🟡',
-    },
-    pranzo: {
-      base: 'Trota o orate al forno con verdure miste di stagione e olio EVO',
-      note_fra: 'Pesce bianco ottimo per calcoli renali. Erbe aromatiche al posto del sale',
-      note_max: 'Ottimo. Aggiungere semi di lino a fine cottura sulle verdure',
-      semaforo: '🟢',
-    },
-    cena: {
-      base: 'Zuppa di verdure con lenticchie rosse, curcuma, zenzero e olio EVO a crudo',
-      note_fra: 'No pomodori (istamina). Usare zucchine, carote, sedano, cipolla',
-      note_max: 'Aggiungere 1 cucchiaio di olio EVO extra a crudo. Ottimo per cuore',
-      semaforo: '🟢',
-    },
-    spuntino: 'Frutti di bosco misti',
-    tag: ['libero', 'antinfiammatorio', 'pesce-bianco'],
-  },
-  {
-    giorno: 'Domenica',
-    short: 'DOM',
-    colazione: {
-      base: 'Pancakes di avena e banana (senza farina bianca) con mirtilli',
-      recipe: '2 uova + 1 banana matura + 4 cucchiai avena — mixare e cuocere senza burro',
-      note_fra: 'Ottimo: amido resistente + proteine. No sciroppo di zucchero',
-      note_max: 'Aggiungere 1 cucchiaio semi di lino nell\'impasto',
-      semaforo: '🟢',
-    },
-    pranzo: {
-      base: 'Agnello magro al forno (porzione piccola) con verdure arrosto e legumi',
-      note_fra: 'Agnello = fonte di zinco (carenza genetica). Porzione piccola, grassi moderati (no colecisti)',
-      note_max: 'Ok, attenzione a non eccedere con grassi saturi. Abbondante verdura',
-      semaforo: '🟡',
-    },
-    cena: {
-      base: 'Insalata grande: rucola, avocado, semi di zucca, cipolla rossa, olio EVO e aceto di mele',
-      note_fra: '⚠️ Aceto di mele ok (non aceto di vino). Aggiungere uova sode',
-      note_max: 'Aggiungere tonno fresco o sardine fresche. Semi di zucca per zinco e magnesio',
-      semaforo: '🟢',
-    },
-    spuntino: 'Aceto di mele con madre in acqua tiepida (prima dei pasti)',
-    tag: ['zinco', 'riposo', 'detox'],
-  },
-];
-
-// ============================================================
-// CIBI SEMAFORO
-// ============================================================
-export const CIBI = {
-  condivisi_si: [
-    { nome: 'Olio EVO', motivo: 'Antinfiammatorio, omega-9, base di ogni pasto', icona: '🫒' },
-    { nome: 'Pesce azzurro fresco', motivo: 'Omega-3 EPA/DHA per cuore e infiammazione', icona: '🐟' },
-    { nome: 'Salmone', motivo: 'Omega-3, vitamina D, proteine complete', icona: '🐠' },
-    { nome: 'Uova intere', motivo: 'Proteine complete, colina, vitamina D e K', icona: '🥚' },
-    { nome: 'Broccoli e crucifere', motivo: 'DIM per ormoni, fibra, vitamina K', icona: '🥦' },
-    { nome: 'Avocado', motivo: 'Grassi buoni, potassio, fibra per microbiota', icona: '🥑' },
-    { nome: 'Mirtilli', motivo: 'Antiossidanti, antinfiammatorio, per cervello', icona: '🫐' },
-    { nome: 'Curcuma + pepe nero', motivo: 'Potente antinfiammatorio (biodisponibile con pepe)', icona: '🌿' },
-    { nome: 'Noci e mandorle', motivo: 'Omega-3, magnesio, vitamina E', icona: '🥜' },
-    { nome: 'Semi di chia e lino', motivo: 'Omega-3, fibra, calcio, per microbiota', icona: '🌱' },
-    { nome: 'Aglio e cipolla', motivo: 'Prebiotici, antibatterici, per microbiota e cuore', icona: '🧄' },
-    { nome: 'Asparagi', motivo: 'Vitamina K, folato, prebiotico', icona: '🌿' },
-    { nome: 'Patate dolci raffreddate', motivo: 'Amido resistente, potassio, basso IG', icona: '🍠' },
-    { nome: 'Lenticchie e legumi', motivo: 'Fibra solubile, proteine, amido resistente', icona: '🫘' },
-    { nome: 'Tè verde', motivo: 'Antiossidante, metabolismo, microbiota', icona: '🍵' },
-    { nome: 'Zenzero', motivo: 'Antinfiammatorio, digestivo, microbiota', icona: '🫚' },
-    { nome: 'Avena', motivo: 'Beta-glucani per colesterolo, amido resistente', icona: '🌾' },
-    { nome: 'Aceto di mele con madre', motivo: 'Glicemia, digestione, microbiota', icona: '🍎' },
-    { nome: 'Topinambur', motivo: 'Prebiotico top, glicemia, microbiota', icona: '🥔' },
-    { nome: 'Semi di zucca', motivo: 'Zinco, magnesio, omega-3 vegetali', icona: '🎃' },
-  ],
-  fra_attenzione: [
-    { nome: 'Formaggi freschi', motivo: 'Lattosio — preferire stagionati duri o senza lattosio', icona: '🧀', level: 'attenzione' },
-    { nome: 'Sale', motivo: 'Sensibilità genetica — usare erbe aromatiche', icona: '🧂', level: 'attenzione' },
-    { nome: 'Sardine/pesce in scatola', motivo: 'Alta istamina — solo fresco o surgelato', icona: '🐟', level: 'stop' },
-    { nome: 'Spinaci in abbondanza', motivo: 'Ossalati — aumentano rischio calcoli renali', icona: '🥬', level: 'attenzione' },
-    { nome: 'Aceto di vino', motivo: 'Istamina alta — ok solo aceto di mele', icona: '🍷', level: 'stop' },
-    { nome: 'Pomodori', motivo: 'Istamina — limitare, no in scatola', icona: '🍅', level: 'attenzione' },
-    { nome: 'Formaggi stagionati', motivo: 'Istamina alta — limitare molto', icona: '🧀', level: 'stop' },
-    { nome: 'Grassi in eccesso in un pasto', motivo: 'Senza colecisti — distribuire i grassi tra i pasti', icona: '🫙', level: 'attenzione' },
-    { nome: 'Bevande gassate', motivo: 'Fosforo (iperfosfatemia) + calcoli renali', icona: '🥤', level: 'stop' },
-    { nome: 'Alcolici', motivo: 'Istamina + glicemia + microbiota', icona: '🍷', level: 'stop' },
-  ],
-  max_attenzione: [
-    { nome: 'Pompelmo', motivo: 'Inibisce CYP3A4 — interazione con statine (rischio tossicità)', icona: '🍊', level: 'stop' },
-    { nome: 'Caffè mattina presto', motivo: 'Assumerlo solo 60 min dopo la levotiroxina', icona: '☕', level: 'attenzione' },
-    { nome: 'Latte/calcio a colazione', motivo: 'Riduce assorbimento levotiroxina — lontano dal farmaco', icona: '🥛', level: 'attenzione' },
-    { nome: 'Soia in eccesso', motivo: 'Interferisce con ormone tiroideo', icona: '🫘', level: 'attenzione' },
-    { nome: 'Carni rosse grasse', motivo: 'Grassi saturi — aggravano placche aterosclerotiche', icona: '🥩', level: 'stop' },
-    { nome: 'Salumi e insaccati', motivo: 'Sale + grassi saturi + nitrati — no per cuore', icona: '🍖', level: 'stop' },
-    { nome: 'Formaggi grassi', motivo: 'Grassi saturi — aggravano colesterolo LDL', icona: '🧀', level: 'stop' },
-    { nome: 'Fritti', motivo: 'Grassi trans — infiammazione e aterosclerosi', icona: '🍟', level: 'stop' },
-    { nome: 'Alcol frequente', motivo: 'Interagisce con statine, aumenta trigliceridi', icona: '🍷', level: 'stop' },
-    { nome: 'Sale in eccesso', motivo: 'Ipertensione e rischio cardiovascolare', icona: '🧂', level: 'stop' },
-  ],
-  entrambi_stop: [
-    { nome: 'Olio di girasole e margarina', motivo: 'Omega-6 infiammatori, grassi trans', icona: '🫙' },
-    { nome: 'Prodotti da forno industriali', motivo: 'Grassi trans, zuccheri, fosfati additivi', icona: '🍞' },
-    { nome: 'Bibite zuccherate', motivo: 'Glicemia, fosforo, microbiota', icona: '🥤' },
-    { nome: 'Zucchero bianco', motivo: 'Glicemia, infiammazione, microbiota', icona: '🍬' },
-    { nome: 'Carni processate', motivo: 'Nitrati, sale, grassi saturi, istamina', icona: '🌭' },
-    { nome: 'Riso bianco non raffreddato', motivo: 'Alto indice glicemico — preferire raffreddato', icona: '🍚' },
-  ],
-};
-
-// ============================================================
-// INTEGRATORI
-// ============================================================
-export const INTEGRATORI = {
-  fra: [
-    { nome: 'D3 + K2 mk7', quando: 'Mattina con il pasto', perche: 'Vitamina D carente (genetico), K per osteopenia', priorita: 'alta', brand: 'SEQUOIA Longevity' },
-    { nome: 'Magnesio glicinato', quando: 'Sera prima di dormire', perche: 'Carenza genetica assorbimento magnesio, migliora anche sonno', priorita: 'alta', brand: 'qualsiasi magnesio bisglicinato' },
-    { nome: 'Zinco bisglicinato', quando: 'Pranzo lontano da calcio', perche: 'Carenza genetica doppia di zinco (SLC30A8 + PPCDC)', priorita: 'alta', brand: 'ZincoDyn Metagenics' },
-    { nome: 'Acido Folico (B9)', quando: 'Mattina', perche: 'Carenza genetica MTHFR doppia — usare forma attiva (metilfolato)', priorita: 'alta', brand: 'B SEQUOIA o metilfolato' },
-    { nome: 'Vitamina B12 (metilcobalamina)', quando: 'Mattina', perche: 'Riduzione livelli B12 genetica', priorita: 'media', brand: 'forma sublinguale' },
-    { nome: 'Omega-3 EPA/DHA', quando: 'Con il pasto principale', perche: 'Colesterolo, infiammazione, microbiota', priorita: 'alta', brand: 'Omega Sand SEQUOIA o simile' },
-    { nome: 'Probiotico (VSL#3)', quando: 'Colazione e cena', perche: 'Microbiota in disbiosi — dopo ciclo Fortif Plus 15 giorni', priorita: 'alta', brand: 'VSL#3 Ferring' },
-    { nome: 'Fortif Plus', quando: 'Prima colazione', perche: 'Primo ciclo probiotico (15 giorni) poi passare a VSL#3', priorita: 'alta', brand: 'Erbenobili' },
-    { nome: 'Berberina', quando: 'Con i pasti', perche: 'Microbiota + glicemia + colesterolo (confermato dal report microbiota)', priorita: 'alta', brand: 'Berberina Yamamoto 1 caps/die 2 mesi' },
-    { nome: 'Selenio', quando: 'Mattina', perche: 'Carenza genetica + supporto tiroide (gene TSHR multiplo)', priorita: 'media', brand: 'Selenio organico' },
-    { nome: 'Vitamina C', quando: 'Mattina e sera', perche: 'Riduzione trasporto VitC genetica. MAX 500mg/die (microbiota)', priorita: 'media', brand: '250mg x 2 volte' },
-    { nome: 'Vitamina K2 alimentare', quando: 'Con i pasti', perche: 'Carenza genetica VKORC1 — attenzione se mai prescritta warfarin', priorita: 'media', brand: 'da alimenti: prezzemolo, spinaci, broccoli' },
-  ],
-  max: [
-    { nome: 'Omega-3 EPA/DHA ad alto dosaggio', quando: 'Con il pasto principale', perche: '⭐ PRIORITÀ ASSOLUTA per carotide occlusa e placche', priorita: 'critica', brand: 'almeno 2g EPA+DHA/die' },
-    { nome: 'CoQ10 (ubichinolo)', quando: 'Mattina con il pasto', perche: 'Le STATINE depleta CoQ10 — fondamentale per energia e cuore', priorita: 'alta', brand: 'forma ubichinolo, 100-200mg' },
-    { nome: 'Magnesio glicinato', quando: 'Sera', perche: 'Le statine possono ridurre magnesio. Riduce dolori muscolari da statine', priorita: 'alta', brand: 'magnesio bisglicinato' },
-    { nome: 'Vitamina D3', quando: 'Mattina con il pasto', perche: 'Le statine abbassano D3. Essenziale per cuore e muscoli', priorita: 'alta', brand: 'almeno 2000 UI/die' },
-    { nome: 'Berberina', quando: 'Con i pasti', perche: 'Abbassa LDL, trigliceridi, glicemia — complementare alle statine', priorita: 'alta', brand: 'valutare con cardiologo' },
-    { nome: 'Nattokinase o serrapeptasi', quando: 'Lontano dai pasti', perche: 'Supporto alla fluidità del sangue — VALUTARE CON MEDICO (interazione cardioaspirina)', priorita: 'media', brand: 'solo con ok medico' },
-    { nome: 'Vitamina K2 MK7', quando: 'Con pasto principale', perche: 'Porta calcio alle ossa invece che alle arterie (calcificazione placche)', priorita: 'alta', brand: 'MK7 forma — non MK4' },
-    { nome: 'Selenio', quando: 'Mattina', perche: 'Supporto tiroide (tiroide mancante richiede più selenio)', priorita: 'media', brand: 'selenio organico' },
-    { nome: 'Vitamina B12', quando: 'Mattina', perche: 'Le statine interferiscono con assorbimento B12', priorita: 'media', brand: 'forma metilcobalamina' },
-  ],
-};
-
-// ============================================================
-// STILE DI VITA
-// ============================================================
-export const STILE_VITA = {
-  mattina: [
-    { ora: '06:30–07:00', azione: 'Esposizione luce naturale (10-15 min)', chi: 'entrambi', dettaglio: 'Uscire o aprire finestre — reset ritmo circadiano, vitamina D, serotonina', icona: '☀️' },
-    { ora: '07:00', azione: 'Massimo: levotiroxina a stomaco vuoto', chi: 'max', dettaglio: 'Aspettare 60 min prima di caffè, latte, calcio, ferro', icona: '💊' },
-    { ora: '07:30', azione: 'Acqua con limone o aceto di mele', chi: 'entrambi', dettaglio: 'Franca: aiuta glicemia e digestione (senza colecisti). Max: attiva metabolismo', icona: '💧' },
-    { ora: '08:00–08:30', azione: 'Colazione (entrambi)', chi: 'entrambi', dettaglio: 'Max: caffè solo ora (60 min dopo farmaco). Fra: iniziare con fibra/proteina, poi carboidrati', icona: '🍳' },
-    { ora: '09:00–10:00', azione: 'Camminata o attività leggera', chi: 'entrambi', dettaglio: 'Minimo 20-30 min. Zona 2 (passo veloce, riesci a parlare). Fondamentale per glicemia e pancia viscerale', icona: '🚶' },
-  ],
-  giorno: [
-    { ora: '12:30–13:30', azione: 'Pranzo', chi: 'entrambi', dettaglio: 'Ordine: verdure → proteine → carboidrati. Mangiare lentamente', icona: '🍽️' },
-    { ora: '14:00–15:00', azione: 'Riposo breve (max 20 min) o camminata', chi: 'entrambi', dettaglio: 'Pausa post pranzo aiuta glicemia. NO sonnellino lungo (rovina sonno notturno)', icona: '😴' },
-    { ora: '16:30–17:30', azione: 'Allenamento (se non mattina)', chi: 'entrambi', dettaglio: 'Max: zona 2 + pesi leggeri. Fra: pesi moderati per osteopenia + zona 2', icona: '💪' },
-    { ora: '17:00', azione: 'Spuntino (se necessario)', chi: 'entrambi', dettaglio: 'Solo se fame vera. Frutta + frutta secca o yogurt. Evitare dolci', icona: '🍎' },
-  ],
-  sera: [
-    { ora: '19:00–19:30', azione: 'Cena (entro le 20:00)', chi: 'entrambi', dettaglio: 'Terminare di mangiare entro le 20:00 — rispetto ritmo circadiano e qualità sonno', icona: '🌙' },
-    { ora: '20:00–21:00', azione: 'No luci blu — occhiali o modalità notte', chi: 'entrambi', dettaglio: 'Schermi con filtro arancione o occhiali blocca-luce-blu. Preparare il cervello al sonno', icona: '🕶️' },
-    { ora: '21:00', azione: 'Magnesio serale', chi: 'entrambi', dettaglio: 'Glicinato o bisglicinato. Aiuta rilassamento muscolare e qualità sonno', icona: '💊' },
-    { ora: '21:30', azione: 'Respirazione rilassante (5 min)', chi: 'entrambi', dettaglio: '5 sec inspira — 5 sec espira. Abbassa cortisolo serale, attiva parasimpatico', icona: '🌬️' },
-    { ora: '22:00–22:30', azione: 'Temperatura camera: 17-19°C', chi: 'entrambi', dettaglio: 'Camera fresca = sonno profondo. Fra: utile anche per vampate se in perimenopausa', icona: '🌡️' },
-    { ora: '22:30–23:00', azione: 'Orario ideale di addormentamento', chi: 'entrambi', dettaglio: 'Prima fascia di sonno (23-02) è la più rigenerante', icona: '😴' },
-  ],
-  allenamento: {
-    max: [
-      '🚶 Camminata veloce 30-45 min ogni giorno (zona 2 — non affannoso)',
-      '🏋️ Pesi leggeri 2x settimana (preserva massa muscolare, abbassa grasso viscerale)',
-      '❌ Evitare sforzi intensi improvvisi (rischio cardiovascolare)',
-      '✅ Aumentare gradualmente l\'intensità nel tempo',
-      '💧 Idratazione abbondante durante l\'esercizio',
-    ],
-    fra: [
-      '🚶 Camminata 20-30 min al giorno (zona 2)',
-      '🏋️ Pesi moderati 2-3x settimana — FONDAMENTALE per osteopenia',
-      '💃 Ballo o attività a basso impatto OK',
-      '⚠️ Evitare esercizi ad alto impatto (corsa) se dolori cervicali',
-      '🦴 Gli esercizi di tonificazione depositano calcio nelle ossa',
-    ],
-  },
-};
-
-// ============================================================
-// CHECKLIST GIORNALIERA
-// ============================================================
 export const CHECKLIST_ITEMS = {
   entrambi: [
-    { id: 'acqua', label: '2L acqua oligominerale', icona: '💧' },
-    { id: 'luce_alba', label: 'Luce naturale al mattino (10 min)', icona: '☀️' },
-    { id: 'camminata', label: 'Camminata / attività fisica', icona: '🚶' },
-    { id: 'cena_20', label: 'Cena entro le 20:00', icona: '🌙' },
-    { id: 'no_luce_blu', label: 'No luci blu dopo le 20:00', icona: '📵' },
-    { id: 'magnesio', label: 'Magnesio serale', icona: '💊' },
-    { id: 'respirazione', label: 'Respirazione rilassante (5 min)', icona: '🌬️' },
-    { id: 'ordine_cibo', label: 'Ordine pasto: verdure → proteine → carbo', icona: '🥗' },
+    { id: "acqua", testo: "Bevuto almeno 1,5-2L di acqua", emoji: "💧" },
+    { id: "verdure", testo: "Mangiato verdure a pranzo e cena", emoji: "🥗" },
+    { id: "movimento", testo: "Fatto 30 min di movimento o cammino", emoji: "🚶" },
+    { id: "frutta", testo: "Mangiato 2 porzioni di frutta", emoji: "🍎" },
+    { id: "fritto", testo: "Evitato cibi fritti e ultra-processati", emoji: "🚫" },
+    { id: "stress", testo: "Momento di relax o respirazione profonda", emoji: "🧘" }
   ],
   max: [
-    { id: 'levotiroxina', label: 'Levotiroxina a stomaco vuoto (60 min prima)', icona: '💊' },
-    { id: 'omega3', label: 'Omega-3 con il pasto', icona: '🐟' },
-    { id: 'coq10', label: 'CoQ10 con il pasto', icona: '💛' },
-    { id: 'no_pompelmo', label: 'No pompelmo oggi', icona: '🍊' },
-    { id: 'k2_max', label: 'Vitamina K2 + D3', icona: '🦴' },
+    { id: "levo", testo: "Levotiroxina a stomaco vuoto (aspettato 60 min)", emoji: "💊" },
+    { id: "aspirina", testo: "Cardioaspirina presa con il cibo", emoji: "💊" },
+    { id: "statina_max", testo: "Statina presa (sera)", emoji: "💊" },
+    { id: "sale_max", testo: "Limitato il sale nei pasti", emoji: "🧂" },
+    { id: "coq10_max", testo: "CoQ10 + D3 + K2 mattina (con pasto grasso)", emoji: "💊" },
+    { id: "magnesio_max", testo: "Magnesio sera (Bisglicinato)", emoji: "💊" }
   ],
   fra: [
-    { id: 'd3k2', label: 'D3 + K2 (con pasto)', icona: '☀️' },
-    { id: 'zinco', label: 'Zinco (lontano da calcio)', icona: '⚡' },
-    { id: 'probiotico', label: 'Probiotico (prima colazione/cena)', icona: '🦠' },
-    { id: 'folato', label: 'Metilfolato (B9)', icona: '🌿' },
-    { id: 'grassi_distribuiti', label: 'Grassi distribuiti tra i pasti (no colecisti)', icona: '🫒' },
-  ],
+    { id: "rosuva", testo: "Rosuvastatina presa (30 min dopo cena)", emoji: "💊" },
+    { id: "bisopro", testo: "Bisoprololo preso (mattina con colazione)", emoji: "💊" },
+    { id: "bdyn", testo: "B-Dyn preso (sera)", emoji: "💊" },
+    { id: "magnesio_fra", testo: "Magnesio Bisglicinato (sera con B-Dyn)", emoji: "💊" },
+    { id: "d3k2coq10", testo: "D3 + K2 + CoQ10 mattina (con pasto grasso)", emoji: "💊" },
+    { id: "calcio", testo: "Calcio Citrato al pranzo", emoji: "💊" },
+    { id: "acqua_reni", testo: "Bevuto acqua extra per i reni (almeno 2L)", emoji: "💧" },
+    { id: "grassi_fra", testo: "Distribuito i grassi in più pasti (no eccesso unico)", emoji: "🥑" }
+  ]
 };
 
-// ============================================================
-// SEGNALI DI ALLARME
-// ============================================================
 export const SEGNALI_ALLARME = {
   max: [
-    { segnale: 'Dolori al petto o respiro affannoso a riposo', azione: '🚨 Chiamare il 118 immediatamente', colore: 'red' },
-    { segnale: 'Giramenti di testa improvvisi o perdita equilibrio', azione: '🚨 Contattare medico subito', colore: 'red' },
-    { segnale: 'Debolezza muscolare diffusa', azione: '⚠️ Valutare con medico — possibile effetto statine', colore: 'orange' },
-    { segnale: 'Urine scure o marroni', azione: '🚨 Rabdomiolisi da statine — medico subito', colore: 'red' },
-    { segnale: 'Aumento rapido della pancia in pochi giorni', azione: '⚠️ Valutare ritenzione idrica con medico', colore: 'orange' },
+    "Dolore al petto o difficoltà respiratoria → Emergenza immediata",
+    "Vertigini improvvise o perdita di equilibrio → Medico urgente",
+    "Debolezza a un lato del corpo, bocca storta → Ictus → 118 immediato",
+    "Tremore improvvisamente molto peggiorato → Neurologo urgente",
+    "Confusione mentale acuta o disorientamento → Medico"
   ],
   fra: [
-    { segnale: 'Giramenti di testa intensi o frequenti', azione: '⚠️ Valutare con medico (cervicale + pressione)', colore: 'orange' },
-    { segnale: 'Dolore lombare acuto (possibile calcolo renale)', azione: '🚨 Pronto Soccorso se intenso', colore: 'red' },
-    { segnale: 'Gonfiore addominale persistente dopo ogni pasto', azione: '⚠️ Valutare intolleranza lattosio o istamina', colore: 'orange' },
-    { segnale: 'Stanchezza eccessiva + capelli secchi', azione: '⚠️ Controllare TSH (predisposizione ipotiroidismo)', colore: 'orange' },
-    { segnale: 'Dolori ossei diffusi', azione: '⚠️ Controllare D3, calcio, densitometria ossea', colore: 'orange' },
-  ],
+    "Dolore lombare intenso + urina torbida o con sangue → Calcolo renale → Medico",
+    "Dolore addominale forte dopo pasto grasso → Digestivo urgente",
+    "Vertigini forti e frequenti → Neurologo / ORL",
+    "Formicolio alle gambe o crampi notturni persistenti → Medico (carenza B12/Mg)",
+    "Dolore osseo improvviso senza trauma → Ortopedico (osteopenia)"
+  ]
 };
